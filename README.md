@@ -6,3 +6,5 @@
 透過Python網路爬蟲財政部公開資料，結合Line messaging API 實做一個簡易的發票兌獎機器人
 
 # 使用說明
+1.掃描QRcode將Line bot 機器人加入好友
+2.相關指令
