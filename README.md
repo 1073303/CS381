@@ -42,7 +42,27 @@ def callback():
     return 'OK'
 ```
 
+> 讀取指令，並產生相對應的結果
 
+```
+    if (mtext == '@本期中獎號碼') :
+        try:
+            message = TextSendMessage(text = monoNum(0))
+            line_bot_api.reply_message(event.reply_token,message)
+        except:
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤!')) 
+    elif (mtext == '@前期中獎號碼') :
+        try:
+            message =TextSendMessage(text = 前期)
+            line_bot_api.reply_message(event.reply_token,message)
+        except:
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤!'))        
+    elif (mtext == '@輸入發票最後三碼') :      
+        try:
+            message=TextMessage(text='請輸入發票最後三碼進行對獎！')
+        except:
+             line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤!'))  
+```
 
 
 
