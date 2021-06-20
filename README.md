@@ -94,8 +94,39 @@ def callback():
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤!'))
     else:
           line_bot_api.reply_message(event.reply_token,TextSendMessage(text='請輸入發票最後三碼進行對獎！'))
-
 ```
-
-
+    
+>不同功能需要使用不同期別資料，因此將讀取一期中獎號碼資料並組合成顯是文字的功能寫成函式
+```
+    def monoNum(n):
+    content=requests.get('https://invoice.etax.nat.gov.tw/invoice.xml')           
+    tree = ET.fromstring(content.text) 
+    items = list(tree.iter(tag='item'))
+    title = items[n][0].text
+    ptext = items[n][2].text
+    ptext = ptext.replace('<p>','').replace('</p>','\n')
+    return title + '月\n'+ptext[:-1]
+```
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
