@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask #建立網站伺服器 使用 Flask 模組
 import requests
 try:
     import xml.etree.cElementTree as ET
@@ -14,7 +14,7 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSend
 line_bot_api=LineBotApi('7yMZm3UwGAaSNmWMbyiMDaW3jbwNSrptj1yvlXVyY6iitRtcqoW9R2L0KWLWDkpXvxAv897OxbLEqpK7l2afuQBH23kKuSLAJUk3MvxmK/cBLBrOeVkdQFLs4+6OPpkZlrEE2YWDiKI5QRHLk/62IAdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('e8a77aff27140aa956a696e74fd8461b')
 
-@app.route("/callback", methods=['POST'])
+@app.route("/callback", methods=['POST'])#建立路由
 def callback():
     signature = request.headers['X-Line-Signature']
     body = request.get_data(as_text=True)
