@@ -28,8 +28,19 @@ try:
 except ImportError:
     import xml.etree.ElementTree as ET 
 ```
+> 建立callback 路由，檢查LINE Bot 的資料是否正確
 
-
+```
+@app.route("/callback", methods=['POST'])
+def callback():
+    signature = request.headers['X-Line-Signature']
+    body = request.get_data(as_text=True)
+    try:
+        handler.handle(body,signature)
+    except InvalidSignatureError:
+        abort(400)
+    return 'OK'
+```
 
 
 
