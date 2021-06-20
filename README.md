@@ -64,8 +64,38 @@ def callback():
              line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤!'))  
 ```
 
+> 擷取單期中獎號碼的函式財政部公開資料發票中獎號碼XML檔中，每一期中獎號碼位於<item>標籤。讀取<item>標籤解析其中資料，可以組合成一期中獎號碼文字資料。
+    
+```
+    elif(len(mtext) == 3 and mtext.isdigit()):            
+        try:
+            content=requests.get('https://invoice.etax.nat.gov.tw/invoice.xml')           
+            tree = ET.fromstring(content.text) 
+            items = list(tree.iter(tag='item'))
+            title = items[0][0].text
+            ptext = items[0][2].text
+            ptext = ptext.replace('<p>','').replace('</p>','')
+            temlist = ptext.split('：')
+            prizelist = []
+            prizelist.append(temlist[1][5:8])
+            prizelist.append(temlist[2][5:8])
+            for i in range(3):
+                prizelist.append(temlist[3][9*i+5:9*i+8])
+            sixlist = temlist[4].split('、')
+            for i in range (len(sixlist)):
+                prizelist.append(sixlist[i])
+            if mtext in prizelist:
+                message = '符合某獎項後三碼，請自行核對發票前五碼!\n\n'
+                message += monoNum(0)
+            else:
+                message = '很可惜，未中獎。請輸入下一張發票後三碼。'
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=message))
+        except:
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤!'))
+    else:
+          line_bot_api.reply_message(event.reply_token,TextSendMessage(text='請輸入發票最後三碼進行對獎！'))
 
-
+```
 
 
 
