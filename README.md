@@ -18,6 +18,16 @@
 
 在輸入@前期中獎號碼/@本期中獎號碼後，過一段時間會顯示出相對應的資訊，@輸入發票最後三碼則會顯示出輸入末三碼的訊息，依指令輸入後即可判斷是否有中獎
 
+### 實作細節
+
+發票中獎號碼網頁為XML，因此使用Python內建的xml.etree.ElementTree模組來解析。
+
+```
+try:
+    import xml.etree.cElementTree as ET
+except ImportError:
+    import xml.etree.ElementTree as ET 
+```
 
 
 
