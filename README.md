@@ -109,7 +109,9 @@ def callback():
     ptext = ptext.replace('<p>','').replace('</p>','\n')
     return title + '月\n'+ptext[:-1]
 ```
-    
+### 成果展示
+![image](https://github.com/1073303/CS381/blob/main/Output.png)    
+        
 ### 參考    
 - Requests: https://docs.python-requests.org/en/master/
 - Python: https://www.python.org/
