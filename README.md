@@ -109,6 +109,8 @@ def callback():
     ptext = ptext.replace('<p>','').replace('</p>','\n')
     return title + '月\n'+ptext[:-1]
 ```
+最後將Line Bot機器人部屬至Heroku    
+    
 ### 成果展示
 ![image](https://github.com/1073303/CS381/blob/main/Output.png)    
         
