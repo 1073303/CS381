@@ -117,6 +117,7 @@ def callback():
 - Python: https://www.python.org/
 - Flask: https://flask.palletsprojects.com/en/2.0.x/
 - LINE Developers: https://developers.line.biz/zh-hant/
+- Heroku: https://dashboard.heroku.com/    
 - ngrok: https://ngrok.com/
 - 財政部開放資料: https://www.einvoice.nat.gov.tw/
     
