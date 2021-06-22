@@ -10,6 +10,8 @@
 ### 使用說明
 1.掃描QRcode將Line bot 聊天機器人加入好友
 
+![image](https://github.com/1073303/CS381/raw/master/圖片資料夾名稱/***.png or***.jpg)
+
 2.相關指令
 
 ├── @輸入發票最後三碼           
